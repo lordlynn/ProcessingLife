@@ -17,121 +17,119 @@ void setup() {
   
   cells = new cell[x_steps+2][y_steps+2];
   
-  // set every cell to be alive at start
+  // Initialize every cell as dead
   for (int i = 0; i < x_steps+2; i++) {
     for (int j = 0; j < y_steps+2; j++) {
-      cells[i][j] = new cell(1);
+      cells[i][j] = new cell(0);
     }
   }
   
-  //// X-Axis bullshit mcgee
-  //int start_x = x_steps / 2;
-  //int start_y = y_steps / 2;
+  // Setup the starting conditions
+  int start_x = x_steps / 2;
+  int start_y = y_steps / 2;
   
-  //cells[start_x][start_y+2].state = 1;
-  //cells[start_x+1][start_y+2].state = 1;
-  //cells[start_x+1][start_y].state = 1;
-  //cells[start_x+3][start_y+1].state = 1;
-  //cells[start_x+4][start_y+2].state = 1;
-  //cells[start_x+5][start_y+2].state = 1;
-  //cells[start_x+6][start_y+2].state = 1;
+  cells[start_x][start_y+2].state = 1;
+  cells[start_x+1][start_y+2].state = 1;
+  cells[start_x+1][start_y].state = 1;
+  cells[start_x+3][start_y+1].state = 1;
+  cells[start_x+4][start_y+2].state = 1;
+  cells[start_x+5][start_y+2].state = 1;
+  cells[start_x+6][start_y+2].state = 1;
   
-  //cells[start_x][start_y+2] = new cell(1); //<>//
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
-  
-  
-  //start_x = (int) ((x_steps) * (1.0 / 3) - 3);
-  //start_y = y_steps / 2 - 1;
-  
-  //cells[start_x][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
-  
-  //start_x = x_steps - 25;
-  //start_y = y_steps / 2 - 1;
-  
-  //cells[start_x][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
+  cells[start_x][start_y+2] = new cell(1); //<>//
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
   
   
-  //start_x = 25;
-  //start_y = y_steps / 2 - 1;
+  start_x = (int) ((x_steps) * (1.0 / 3) - 3);
+  start_y = y_steps / 2 - 1;
   
-  //cells[start_x][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
+  cells[start_x][start_y+2] = new cell(1);
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
   
+  start_x = x_steps - 25;
+  start_y = y_steps / 2 - 1;
   
-  //// Y-Axis bukllshit
-  //start_x = x_steps / 2 - 3;
-  //start_y = (int) (y_steps * (1.0 / 3) - 1);
-  
-  //cells[start_x][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
+  cells[start_x][start_y+2] = new cell(1);
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
   
   
-  //start_x = x_steps / 2 - 3;
-  //start_y = (int) (y_steps * (2.0 / 3) - 1);
+  start_x = 25;
+  start_y = y_steps / 2 - 1;
   
-  //cells[start_x][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
+  cells[start_x][start_y+2] = new cell(1);
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
+  
+  start_x = x_steps / 2 - 3;
+  start_y = (int) (y_steps * (1.0 / 3) - 1);
+  
+  cells[start_x][start_y+2] = new cell(1);
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
   
   
-  //start_x = x_steps / 2 - 3;
-  //start_y = y_steps - 25;
+  start_x = x_steps / 2 - 3;
+  start_y = (int) (y_steps * (2.0 / 3) - 1);
   
-  //cells[start_x][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
+  cells[start_x][start_y+2] = new cell(1);
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
   
-  //start_x = x_steps / 2 - 3;
-  //start_y = 25;
   
-  //cells[start_x][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y+2] = new cell(1);
-  //cells[start_x+1][start_y] = new cell(1);
-  //cells[start_x+3][start_y+1] = new cell(1);
-  //cells[start_x+4][start_y+2] = new cell(1);
-  //cells[start_x+5][start_y+2] = new cell(1);
-  //cells[start_x+6][start_y+2] = new cell(1);
+  start_x = x_steps / 2 - 3;
+  start_y = y_steps - 25;
+  
+  cells[start_x][start_y+2] = new cell(1);
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
+  
+  start_x = x_steps / 2 - 3;
+  start_y = 25;
+  
+  cells[start_x][start_y+2] = new cell(1);
+  cells[start_x+1][start_y+2] = new cell(1);
+  cells[start_x+1][start_y] = new cell(1);
+  cells[start_x+3][start_y+1] = new cell(1);
+  cells[start_x+4][start_y+2] = new cell(1);
+  cells[start_x+5][start_y+2] = new cell(1);
+  cells[start_x+6][start_y+2] = new cell(1);
   
 }
 
 void draw() {
   int sum;
- //<>//
+  
   for (int i = 1; i < x_steps - 1; i++) {
     for (int j = 1; j < y_steps - 1; j++) {
       sum = check_neighbors(i, j);
@@ -191,7 +189,7 @@ void draw() {
     }
  }
 
-  delay(5); //<>//
+  delay(5); 
 }
 
 int check_neighbors(int i, int j) {
